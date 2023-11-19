@@ -1,17 +1,18 @@
 const express = require('express');
-const cors = require('cors');
 const session = require('express-session');
-const mysql = require('mysql');
+const cors = require('cors');
+const mysql = require('mysql2');
 const path = require('path');
 
 const app = express();
 
-
-app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
-}));
+app.use(session(
+    {
+        secret: 'secret',
+        resave: true,
+        saveUninitialized: true
+    }
+));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,9 +20,9 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.use(cors());
 
 const db = mysql.createConnection({
-    user: "root",
+    user: "test_user",
     host: "localhost",
-    password: "Neelam@28",
+    password: "test@123",
     database: "injection",
 });
 
@@ -42,7 +43,7 @@ router.post("/getdetails", (req, res) => {
             if (result.length > 0) {
                 res.status(200).send(result);
             } else {
-                res.status(401).send({ message: "Wrong username/password combination!" });
+                res.status(401).send({ message: "Wrong username/password" });
             }
         }
     });
@@ -65,8 +66,6 @@ router.post("/getdetails", (req, res) => {
 
 app.use("/users", router);
 
-app.listen(3001, () => {
-    console.log("Server has started on port 3001");
+app.listen(8000, () => {
+    console.log("Server has started on port 8000");
 });
-
-
