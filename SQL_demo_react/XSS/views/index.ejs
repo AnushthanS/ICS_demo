@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Example (HTML) -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline';"> -->
+
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(36, 36, 36);
+      display: flex;
+      justify-content: center;
+      place-items: center;
+      min-width: 320px;
+      min-height: 100vh;
+      
+
+      gap: 0.3rem;
+      margin: 0 auto;
+    }
+    header{
+      color: white;
+    }
+
+    .component{
+        gap: 0.3rem;
+    }
+
+ 
+    button {
+      margin: 0.3rem;
+      padding: 10px 20px;
+     background-color: #1a1a1a;
+      
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    /* Hover effect for the button */
+    button:hover {
+      border-color: #646cff;
+    }
+    
+    /* Active/focus effect for the button */
+    button:focus,
+    button:active {
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+    
+
+    /* Style for the input */
+input {
+  width: 70vh;
+  height: 30px;
+  margin: 0.4rem;
+
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+
+  outline: none; /* Removes the default focus border */
+}
+
+/* Style for the input on focus */
+input:focus {
+  border-color: #007bff; /* Change the border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a shadow on focus */
+}
+
+
+    h3{
+      color: white;
+    }
+    
+  </style>
+
+
+</head>
+<body>
+    <body>
+        <div class="component">
+        <!-- Header -->
+
+        <header>
+          <h1>XSS Demonstration</h1>
+          <h2>Group 16</h2>
+          <p>Read, search, and post comments</p>
+        </header>
+    
+        <!-- Search form -->
+        <form method="GET">
+          <input type="text" name="q" 
+                 placeholder="Search query" autocomplete="off" /><br>
+          <button type="submit" value="">Filter Comments</button>
+        </form>
+    
+        <!-- Comments -->
+        <% if (!searchQuery) { %>
+          <h3>Showing all comments:</h3>
+        <% } else { %>
+          <h3>Showing comments containing "<%- searchQuery %>":</h3>
+        <% } %>
+    
+        <% comments.forEach(function(comment) { %>
+          <div>
+            <p><%= comment %></p>
+          </div>
+        <% }); %>
+    
+        <!-- Write form -->
+        <form action="/" method="POST">
+          <input type="text" name="comment" 
+                 placeholder="Comment" autocomplete="off" /> <br>
+          <button type="submit" value="" >Submit new comment</button>
+        </form>
+      </div>
+      </body>
+</body>
+</html>

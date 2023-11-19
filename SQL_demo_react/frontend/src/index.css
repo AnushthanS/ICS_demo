@@ -23,9 +23,33 @@ a:hover {
   color: #535bf2;
 }
 
+label{
+  font-size: 1.2rem;
+}
+
+input {
+  width: 50vh;
+  height: 20px;
+  margin: 0.4rem;
+
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+
+  outline: none; /* Removes the default focus border */
+}
+
+/* Style for the input on focus */
+input:focus {
+  border-color: #007bff; /* Change the border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a shadow on focus */
+}
+
 body {
   margin: 0;
   display: flex;
+  justify-content: center;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -34,6 +58,31 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 50%;
+  /* margin: 0 auto; */
+  /* border: 1px solid #ddd; */
+  /* border: 2px solid wheat; */
+}
+th , td{
+  text-align: center;
+}
+
+td{
+  font-weight: lighter;
+}
+
+.inblock{
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-direction: column;
+  /* margin: 0 auto; */
+  gap: 1rem;
 }
 
 button {

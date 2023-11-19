@@ -46,8 +46,9 @@ const App = () => {
     <div>
       <h1>SQL Injection Demonstration</h1>
       <h2>Group 16</h2>
+      <div className="inblock">
       <div>
-        <label>Username:</label>
+        <label>Username:  </label>
         <input
           type="text"
           value={username}
@@ -58,7 +59,7 @@ const App = () => {
         />
       </div>
       <div>
-        <label>Password:</label>
+        <label>Password:  </label>
         <input
           type="password"
           value={password}
@@ -73,6 +74,7 @@ const App = () => {
           Get User Details
         </button>
       </div>
+      </div>
       {error && (
         <div>
           <p>{error}</p>
@@ -84,23 +86,15 @@ const App = () => {
           <table>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Mobile Number</th>
+                <th>Username</th>      
                 <th>Password</th>
-                <th>Gender</th>
               </tr>
             </thead>
             <tbody>
               {userDetails.map((user) => (
                 <tr key={user.id}>
-                  <td>{user.id}</td>
-                  <td>{user.name}</td>
-                  <td>{user.username}</td>
-                  <td>{user.mobile_no}</td>
+                  <td>{user.username}</td>  
                   <td>{user.password}</td>
-                  <td>{user.gender}</td>
                 </tr>
               ))}
             </tbody>

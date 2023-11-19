@@ -20,10 +20,10 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.use(cors());
 
 const db = mysql.createConnection({
-    user: "test_user",
+    user: "root",
     host: "localhost",
-    password: "test@123",
-    database: "injection",
+    password: "nikunj159",
+    database: "sqlinjection",
 });
 
 const router = express.Router();
