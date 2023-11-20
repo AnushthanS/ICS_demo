@@ -22,8 +22,8 @@ app.use(cors());
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
-    password: "nikunj159",
-    database: "sqlinjection",
+    password: "",
+    database: "",
 });
 
 const router = express.Router();
